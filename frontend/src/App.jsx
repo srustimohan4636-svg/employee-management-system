@@ -9,7 +9,9 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-const API_URL = "http://127.0.0.1:5000/api/employees";
+
+const API_BASE = import.meta.env.VITE_API_URL || "http://127.0.0.1:5000";
+const API_URL = `${API_BASE.replace(/\/+$/, "")}/api/employees`;
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -367,6 +369,24 @@ function App() {
         </div>
 
       </div>
+
+      {/* DEPARTMENT CHART */}
+      {departmentData.length > 0 && (
+        <div className="card chart-card">
+          <h2>Department Overview</h2>
+          <div style={{ width: "100%", height: 280, marginTop: "15px" }}>
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={departmentData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="department" />
+                <YAxis allowDecimals={false} />
+                <Tooltip />
+                <Bar dataKey="employees" fill="#2563eb" radius={[6, 6, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      )}
 
       {/* ADD / UPDATE */}
 

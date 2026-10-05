@@ -12,8 +12,11 @@ CORS(app)
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 DATABASE_PATH = os.path.join(BASE_DIR, "employees.db")
+database_url = os.environ.get("DATABASE_URL", "sqlite:///" + DATABASE_PATH)
+if database_url.startswith("postgres://"):
+    database_url = database_url.replace("postgres://", "postgresql://", 1)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + DATABASE_PATH
+app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
@@ -196,4 +199,6 @@ with app.app_context():
 # -----------------------------
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    debug = os.environ.get("FLASK_DEBUG", "false").lower() in ("true", "1")
+    app.run(host="0.0.0.0", port=port, debug=debug)

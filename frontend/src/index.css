@@ -192,8 +192,12 @@ form button[type="button"] {
 
 .filters {
   display: grid;
-  grid-template-columns:
-  .chart-card {
+  grid-template-columns: 2fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.chart-card {
   margin-bottom: 25px;
 }
 
@@ -204,4 +208,252 @@ form button[type="button"] {
 .employee-subtitle {
   color: #6b7280;
   margin-bottom: 20px;
+}
+
+/* NAVBAR RIGHT & LOGOUT */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logout-btn {
+  background: #ef4444;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+/* TABLE STYLING */
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th {
+  background: #f8fafc;
+  padding: 14px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  border-bottom: 1px solid #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+tr:hover td {
+  background: #f8fafc;
+}
+
+.department-badge {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.view-btn {
+  background: #0284c7;
+  color: white;
+  margin-right: 6px;
+  padding: 6px 12px;
+}
+
+.view-btn:hover {
+  background: #0369a1;
+}
+
+.edit-btn {
+  background: #f59e0b;
+  color: white;
+  margin-right: 6px;
+  padding: 6px 12px;
+}
+
+.edit-btn:hover {
+  background: #d97706;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+  padding: 6px 12px;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+.no-data {
+  text-align: center;
+  padding: 30px;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* LOGIN PAGE */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  padding: 20px;
+}
+
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.login-icon {
+  font-size: 52px;
+  margin-bottom: 12px;
+}
+
+.login-card h1 {
+  color: #1e3a8a;
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.login-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-card input {
+  padding: 12px 16px;
+}
+
+.login-card button {
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  background: #1e3a8a;
+}
+
+.login-card button:hover {
+  background: #1e40af;
+}
+
+.login-error {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  background: #fee2e2;
+  color: #b91c1c;
+  font-size: 14px;
+}
+
+.demo-login {
+  margin-top: 25px;
+  padding: 12px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #475569;
+  text-align: left;
+}
+
+.demo-login strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #1e3a8a;
+}
+
+/* MODAL */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 480px;
+}
+
+.modal h2 {
+  color: #1e3a8a;
+  margin-bottom: 16px;
+}
+
+.employee-details {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.employee-details p {
+  padding: 6px 0;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 14px;
+}
+
+.employee-details p:last-child {
+  border-bottom: none;
+}
+
+.modal button {
+  width: 100%;
+  padding: 10px;
+  background: #1e3a8a;
 }
